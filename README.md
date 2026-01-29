@@ -18,7 +18,7 @@ When installed, typing **`/ledger`** produces:
 - Open Items & Next Steps
 - Keywords per section + a Hashtag Rollup (for indexing)
 
----
+----
 
 ## Install (the important part)
 
