@@ -1,0 +1,58 @@
+{
+  "name": "ledger_report",
+  "version": "1.0.0",
+  "status": "shareable_prompt_pattern_not_a_formal_standard",
+  "trigger": {
+    "command": "/ledger",
+    "behavior": "When the user types /ledger, generate the ledger report for the current conversation using the authoritative template and rules defined in the associated markdown file."
+  },
+  "authoritative_template": {
+    "markdown_file": "ledger_report.md",
+    "binding_instruction": "/ledger behavior: When the user types `/ledger`, you must generate the ledger report for the current conversation using the uploaded file `ledger_report.md` as the authoritative template. Follow its section headings, ordering, and output rules exactly. Do not add extra sections. If information is missing, mark it as unknown rather than guessing."
+  },
+  "optional_args": [
+    {
+      "name": "topic",
+      "type": "string",
+      "description": "Optional keyword/topic filter (e.g., /ledger onboarding)."
+    },
+    {
+      "name": "date_range",
+      "type": "string",
+      "description": "Optional date filter if the assistant can infer dates (e.g., /ledger 2026-01-01..2026-01-15)."
+    },
+    {
+      "name": "scope",
+      "type": "enum",
+      "values": ["this_chat", "project_folder"],
+      "default": "this_chat",
+      "description": "Where to pull content from, if supported."
+    }
+  ],
+  "output_rules": {
+    "format": "markdown",
+    "section_heading_style": "h2",
+    "bullets_per_section": { "min": 3, "max": 7 },
+    "section_keywords": { "enabled": true, "count_min": 3, "count_max": 8 },
+    "hashtag_rollup": { "enabled": true, "style": "kebab-case", "count_min": 8, "count_max": 20 },
+    "uncertainty": "Do not guess. Mark unknowns explicitly."
+  },
+  "sections_in_order": [
+    "Summary & Context",
+    "Actions Taken",
+    "Decisions & Rationale",
+    "Misfires & Fixes",
+    "Artifacts & Files",
+    "Open Items & Next Steps",
+    "Hashtag Rollup"
+  ],
+  "notes": [
+    "This JSON is a structured representation of the /ledger report template and behavior.",
+    "The canonical human-readable template and rules live in ledger_report.md."
+  ],
+  "attribution": {
+    "author": "Al Spaulding",
+    "github": "https://github.com/alspaulding",
+    "contributing": "Open an Issue or Pull Request in this repo."
+  }
+}
