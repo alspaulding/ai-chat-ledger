@@ -60,3 +60,9 @@ Created by Al Spaulding.
 
 - GitHub: @alspaulding
 - Suggestions welcome via Issues and Pull Requests.
+
+## License & Attribution
+MIT — see `LICENSE`.
+
+If you use or adapt this template, attribution is appreciated (link back to this repo), but not required.
+
